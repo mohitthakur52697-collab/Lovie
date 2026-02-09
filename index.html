@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To my Priyanka ♥️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+body{
+  margin:0;
+  font-family: "Georgia", serif;
+  background: radial-gradient(circle at top, #1a0f14, #0d0d0d);
+  color:#fff;
+}
+
+.page{
+  min-height:100vh;
+  padding:40px 20px;
+  display:none;
+  text-align:center;
+  animation: fade 1s ease;
+}
+
+.page.active{ display:block; }
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h1{
+  font-size:26px;
+  line-height:1.6;
+  color:#ffb6c1;
+}
+
+p{
+  font-size:18px;
+  line-height:1.8;
+  margin-top:22px;
+}
+
+img, video{
+  max-width:90%;
+  border-radius:22px;
+  margin-top:25px;
+  box-shadow:0 0 30px rgba(255,182,193,0.35);
+}
+
+.caption{
+  margin-top:18px;
+  font-style:italic;
+  color:#ffd6e3;
+}
+
+textarea, input{
+  width:85%;
+  padding:12px;
+  margin-top:20px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+}
+
+button{
+  margin-top:35px;
+  padding:14px 34px;
+  border:none;
+  border-radius:50px;
+  background:#ff4f81;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+#noBtn{
+  position:absolute;
+  background:#444;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" src="song.mp3"></audio>
+
+<!-- FRONT PAGE -->
+<div class="page active">
+  <h1>
+    To my girl<br>
+    My heart<br>
+    My babey<br>
+    My kiddo<br>
+    To my Priyanka ♥️
+  </h1>
+
+  <p>
+    Before anything else…<br>
+    take a deep breath.<br><br>
+    This is just me,<br>
+    being honest with you.
+  </p>
+
+  <button onclick="startStory()">Start 💗</button>
+</div>
+
+<!-- PHOTO 1 -->
+<div class="page">
+  <img src="photo1.jpg" class="memory">
+  <div class="caption">
+    Priyanka… somehow, my heart learned your name before I realized it.
+  </div>
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- QUESTION 1 -->
+<div class="page">
+  <h1>Tell me 🤍</h1>
+  <p>
+    What makes you feel calm,<br>
+    even when life feels heavy?
+  </p>
+  <textarea placeholder="You can write here…"></textarea>
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- VIDEO 1 -->
+<div class="page">
+  <video src="video1.mp4" controls></video>
+  <div class="caption">
+    Somewhere around moments like this,<br>
+    my heart stopped being careful.
+  </div>
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- PHOTO 2 -->
+<div class="page">
+  <img src="photo2.jpg">
+  <div class="caption">
+    Being with you doesn’t feel loud or dramatic…  
+    it feels peaceful.  
+    It feels right.
+  </div>
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- QUESTION 2 -->
+<div class="page">
+  <h1>A soft question 💕</h1>
+  <p>
+    What does love mean to you,<br>
+    when no one is watching?
+  </p>
+  <input type="text" placeholder="Your answer…">
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- VIDEO 2 -->
+<div class="page">
+  <video src="video2.mp4" controls></video>
+  <div class="caption">
+    I don’t need perfect days.<br>
+    I just need moments that feel like *us*.
+  </div>
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- PHOTO 3 (HOME CAPTION KEPT) -->
+<div class="page">
+  <img src="photo3.jpg">
+  <div class="caption">
+    If home had a feeling,<br>
+    it would look a lot like you.
+  </div>
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- QUESTION 3 -->
+<div class="page">
+  <h1>One last thought 🌙</h1>
+  <p>
+    Do you believe love is choosing the same person,<br>
+    even on the ordinary days?
+  </p>
+  <input type="text" placeholder="Your thoughts…">
+  <button onclick="nextPage()">➜</button>
+</div>
+
+<!-- PROPOSAL -->
+<div class="page">
+  <h1>Priyanka ♥️</h1>
+
+  <p>
+    I won’t promise perfection.<br>
+    But I promise honesty,<br>
+    effort,<br>
+    and a heart that keeps choosing you.
+  </p>
+
+  <h1>Will you be mine? 💍</h1>
+
+  <div style="position:relative; height:140px; margin-top:30px;">
+    <button onclick="sayYes()" style="left:25%; position:absolute;">Yes 💖</button>
+    <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+  </div>
+</div>
+
+<!-- CELEBRATION -->
+<div class="page">
+  <h1>She said YES 💞</h1>
+  <p>
+    And just like that…<br>
+    the world felt warmer.
+  </p>
+  <button onclick="finalPage()">One last thing… 👀</button>
+</div>
+
+<!-- HIDDEN FINAL PAGE -->
+<div class="page">
+  <h1>I love you, Priyanka ❤️</h1>
+  <p>
+    This page is quiet on purpose.<br>
+    Just like the way my feelings grew for you.<br><br>
+
+    Slowly.<br>
+    Gently.<br>
+    Without asking for anything in return.<br><br>
+
+    No expectations.<br>
+    No pressure.<br>
+    Just a heart that feels at home when it thinks of you.<br><br>
+
+    I love you.
+  </p>
+</div>
+
+<script>
+let pages = document.querySelectorAll(".page");
+let current = 0;
+let audio = document.getElementById("bgm");
+
+function startStory(){
+  audio.currentTime = 20;
+  audio.volume = 0.3;
+  audio.play();
+  nextPage();
+}
+
+function nextPage(){
+  pages[current].classList.remove("active");
+  current++;
+  pages[current].classList.add("active");
+}
+
+function moveNo(){
+  const no = document.getElementById("noBtn");
+  no.style.left = Math.random()*70 + "%";
+  no.style.top = Math.random()*70 + "%";
+}
+
+function sayYes(){
+  pages[current].classList.remove("active");
+  current++;
+  pages[current].classList.add("active");
+  confetti({ particleCount: 180, spread: 120 });
+}
+
+function finalPage(){
+  pages[current].classList.remove("active");
+  current++;
+  pages[current].classList.add("active");
+}
+</script>
+
+</body>
+</html>
